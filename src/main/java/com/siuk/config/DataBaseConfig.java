@@ -35,6 +35,7 @@ public class DataBaseConfig {
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
 		SqlSessionFactoryBean ssfb = new SqlSessionFactoryBean();
 		ssfb.setDataSource(dataSource);
+		ssfb.setConfigLocation(context.getResource("classpath:/mybatis-config.xml"));
 		ssfb.setMapperLocations(context.getResources("classpath:/sql/**/*.xml"));
 		return ssfb.getObject();
 	}

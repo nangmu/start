@@ -1,14 +1,21 @@
 package com.siuk.vo;
 
-import java.security.Timestamp;
+import java.sql.Date;
+import java.time.LocalDateTime;
 
 public class Board {
 	
 	private Integer no;
 	private String title;
 	private String content;
-	private Timestamp regDate;
+	private LocalDateTime regDate;
 	
+	public LocalDateTime getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(LocalDateTime regDate) {
+		this.regDate = regDate;
+	}
 	public Integer getNo() {
 		return no;
 	}
@@ -27,12 +34,6 @@ public class Board {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Timestamp getRegDate() {
-		return regDate;
-	}
-	public void setRegDate(Timestamp regDate) {
-		this.regDate = regDate;
-	}
 	
 	@Override
 	public int hashCode() {
@@ -44,6 +45,7 @@ public class Board {
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -65,6 +67,7 @@ public class Board {
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		return "Board [no=" + no + ", title=" + title + ", content=" + content + ", regDate=" + regDate + "]";

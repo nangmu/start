@@ -1,4 +1,4 @@
-package com.siuk.services;
+package com.siuk.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.siuk.service.BoardSrv;
 import com.siuk.vo.Board;
 
 @SpringBootTest
