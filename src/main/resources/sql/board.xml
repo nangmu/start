@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+<insert id="insertBoard" parameterType="com.siuk.vo.Board">
+INSERT INTO board (title, content)
+VALUES (#{title}, #{content})
+<selectKey keyProperty="no" resultType="int">
+        SELECT LAST_INSERT_ID()
+</selectKey>
+</insert>
+
+<select id="selectBoard" resultType="com.siuk.vo.Board">
+SELECT *
+FROM board
+WHERE no = #{no}
+</select>
+
+<delete id="deleteBoard">
+DELETE FROM board
+WHERE no = #{no}
+</delete>
+
+<select id="selectBoards" resultType="com.siuk.vo.Board">
+SELECT *
+FROM board
+</select>
+
+</mapper>
