@@ -37,7 +37,6 @@
 
 		<div class="my-4">
         	<h1>게시판<a href="/board/write"><button style="float: right">글쓰기</button></a></h1>
-        	
 		</div>
 		
         <!-- Blog Post -->
@@ -46,27 +45,28 @@
           <!-- <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"> -->
           
           <div class="card-body">
-            <h2 class="card-title">${b.title}</h2>
-            <p class="card-text">${b.content}</p>
-            <a href="#" class="btn btn-primary">Read More &rarr;</a>
+            <h2 class="card-title"><c:out value="${b.title}"/></h2>
+            <p class="card-text"><c:out value="${b.content}"/></p>
+            <a href="/board/${b.no}" class="btn btn-primary">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">
             <c:out value="${b.regDate}"/>  by
-            <a href="#">Start Bootstrap</a>
+            <a href="#">${b.nickname}</a>
           </div>
         </div>        
         </c:forEach>
 
         <!-- Pagination -->
         <ul class="pagination justify-content-center mb-4">
-          <li class="page-item">
-            <a class="page-link" href="#">&larr; Older</a>
+          <li class="page-item <c:if test='${paging.prev == false}'><c:out value='disabled'/></c:if>">
+            <a class="page-link" href="/?reqPage=${paging.reqPage-1}" >&larr; Prev</a>
           </li>
-          <li class="page-item disabled">
-            <a class="page-link" href="#">Newer &rarr;</a>
+          <li class="page-item  <c:if test='${paging.next == false}'><c:out value='disabled'/></c:if>">
+            <a class="page-link" href="/?reqPage=${paging.reqPage+1}">Next &rarr;</a>
           </li>
+          <li class="page-item">${paging.reqPage} / ${paging.totalPage}</li>
         </ul>
-
+		
       </div>
 
       <!-- Sidebar Widgets Column -->
